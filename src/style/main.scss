@@ -1,3 +1,6 @@
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.theme";
+
 @import "./_variables";
 @import "./mixins";
 @import "./normalize";
@@ -5,3 +8,6 @@
 @import "./header";
 @import "./content";
 @import "./product-card";
+@import "./glide";
+@import "./modal";
+@import "./footer";

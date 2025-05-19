@@ -120,4 +120,88 @@ document.addEventListener("DOMContentLoaded", function () {
       hideCards();
     }
   });
+
+  new Glide(".sec5-cards", {
+    type: "carousel",
+    startAt: 0,
+    perView: 1,
+  }).mount();
+
+  // Скрипт до модальних вікон
+
+  const btnIdsToOpenModal = ["sec-8-card-1-btn", "sec-8-card-2-btn"];
+  const generalModalWrapper = document.querySelector(".modals-wrapper");
+  // обирає усі кнопки що призначені для закриття модального вікна
+  const closeModalBtns = document.querySelectorAll(".modal-close-btn");
+
+  // методом forEach перебираємо масив що попередньо створили
+  btnIdsToOpenModal.forEach((btnId) => {
+    // зберігає у собі елемент кнопки з відповідним id, елемент обирається за допомогою метода getElementById
+    const btnEl = document.getElementById(btnId);
+    // зберігає у собі унікальний ідентифікатор модального вікна, яке має бути відкрито, до елементу btnEl застосовуємо метод getAttribute
+    // і зберігаємо в змінну значення атрибуту data-modal-id
+    const modalId = btnEl.getAttribute("data-modal-id");
+    // зберігає у собі безпосередньо елемент вікна з контентом, за допомогою методу getElementById та змінної modalId отримуємо
+    // цей елемент
+    const modalEl = document.getElementById(modalId);
+
+    //до кнопки встановлюємо слухач на подію click та всередині ф-ії прописуємо та що має відбутися під час кліку
+    btnEl.addEventListener("click", function () {
+      // додаємо клас .visible до загальної обгортки
+      generalModalWrapper.classList.add("visible");
+      // додаємо клас .visible до конкретного модального вікна
+      modalEl.classList.add("visible");
+      // обираємо елемент body та додаємо до нього клас .overflow - {overflow: hidden;}
+      document.querySelector("body").classList.add("overflow");
+    });
+  });
+
+  // до масиву значень який зберігає усі кнопки, признач. для закр. вікна застос. метод масиву forEach
+  closeModalBtns.forEach((closeBtn) => {
+    // до кожної кнопки додаємо спостерігача подій, що спрацьовує на клік
+    closeBtn.addEventListener("click", function () {
+      generalModalWrapper.classList.remove("visible");
+      // удаляет класс "visible" с родительского элемента текущего элемента
+      this.parentElement.classList.remove("visible");
+      // прибирає з body клас .overflow
+      document.querySelector("body").classList.remove("overflow");
+    });
+  });
+
+  // ініціалізуємо роботу сервісу:
+  (function () {
+    // https://dashboard.emailjs.com/admin/account
+    emailjs.init({
+      publicKey: "Yq2p1dRR7X8PohKkF",
+    });
+  })();
+
+  // Налаштовуємо відправку форми по кліку на кнопку
+  const formBtn = document.getElementById("form-submit");
+  const emailField = document.getElementById("email-input");
+
+  formBtn.addEventListener("click", function (event) {
+    event.preventDefault();
+    const currentEmail = emailField.value;
+    const isCurrentEmailValid = isEmailValid(currentEmail);
+
+    if (isCurrentEmailValid) {
+      emailjs.send("service_r3eclmp", "template_a70660p", {
+        user_email: currentEmail,
+      });
+      alert("Thanks for subscribing!");
+      emailField.value = ""; //clear form after submiting
+    } else {
+      alert("Please type correct email address!");
+    }
+  });
+
+  // Додаємо функцію, що буде перевіряти true/false
+  function isEmailValid(value) {
+    const emailValidateRegExp =
+      /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
+
+    // метод test повертає true або false
+    return emailValidateRegExp.test(value);
+  }
 });
