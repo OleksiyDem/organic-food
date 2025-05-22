@@ -12,6 +12,9 @@
     rel="stylesheet">
   <link rel="stylesheet" href="./node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css">
   <link rel="stylesheet" href="./node_modules/@fortawesome/fontawesome-free/css/solid.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/awesome-notifications/3.1.0/style.min.css"
+    integrity="sha512-OFAsS5R1Fx+HUK9/h/ChqnFDrJGI0Y7nO05gg9E+Mv1UAzvAMvQdtOuPLhgPgDPHOgKWBvbovxT3eQSCr5hlLw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="./build/css/main.min.css">
 </head>
 
@@ -36,7 +39,7 @@
             <img src="./assets/images/search-icon.svg" alt="Search">
           </button>
         </div>
-        <div class="cart df align-c">
+        <div class="cart df align-c" id="cart-modal-btn" data-modal-id="cart-modal">
           <div class="cart-icon">
             <img src="./assets/images/cart-icon.svg" alt="Cart">
           </div>
@@ -138,8 +141,7 @@
         <h3 class="yellowtail-text green-text sec-subtitle">Categories</h3>
         <h2 class="sec-title">Our Products</h2>
         <div class="sec-4-cards product-cards">
-
-          <div class="sec-4-card product-card">
+          <!-- <div class="sec-4-card product-card">
             <p class="badge">Vegetable</p>
             <div class="photo">
               <img src="./assets/images/product-photo-1.png">
@@ -157,7 +159,6 @@
             </div>
             <a href="" class="buy">Add to cart</a>
           </div>
-
           <div class="sec-4-card product-card">
             <p class="badge">Vegetable</p>
             <div class="photo">
@@ -427,7 +428,7 @@
               </div>
             </div>
             <a href="" class="buy">Add to cart</a>
-          </div>
+          </div> -->
         </div>
         <button class="df align-c call-to-action-link" id="load-more-cards">
           <span>Load More</span>
@@ -515,7 +516,7 @@
           </a>
         </div>
         <div class="sec-6-cards product-cards">
-          <div class="sec-6-card product-card">
+          <!-- <div class="sec-6-card product-card">
             <p class="badge">Vegetable</p>
             <div class="photo">
               <img src="./assets/images/product-photo-1.png">
@@ -586,7 +587,7 @@
               </div>
             </div>
             <a href="" class="buy">Add to cart</a>
-          </div>
+          </div> -->
         </div>
       </div>
     </section>
@@ -726,6 +727,13 @@
           </p>
         </div>
       </article>
+      <article class="modal" id="cart-modal">
+        <button class="modal-close-btn"><span></span><span></span></button>
+        <div class="modal-content">
+          <h3>The contents of your shopping cart</h3>
+          <ul></ul>
+        </div>
+      </article>
     </section>
     <section class="sec-9 vertical-paddings">
       <div class="container">
@@ -740,28 +748,62 @@
     </section>
   </main>
   <footer class="vertical-paddings">
-    <div class="container">
-      <div class="logo"><img src="./assets/images/logo.webp"></div>
-      <p class="description">
-        Simply dummy text of the printing and typesetting industry. Lorem Ipsum simply dummy text of the printing
-      </p>
-      <h3>Contact Us</h3>
-      <ul class="df align-c justify-c">
-        <li><strong>Email:</strong> <a href="mailto:needhelp@Organia.com">needhelp@Organia.com</a></li>
-        <li><strong>Phone:</strong> <a href="phoneto:666 888 888">666 888 888</a></li>
-        <li>
-          <strong>Address:</strong>
-          <a href="https://www.google.com/maps/search/88+road,+borklyn+street,+USA/@40.700618,-74.1105207,11z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI0MDkxOC4xIKXMDSoASAFQAw%3D%3D"
-            target="_blank">
-            88 road, borklyn street, USA
+    <div class="container df justify-b">
+
+      <div class="contact-us df fc align-e">
+        <h3>Contact Us</h3>
+        <ul class="df fc align-e">
+          <li><strong>Email:<br></strong> <a href="mailto:needhelp@Organia.com">needhelp@Organia.com</a></li>
+          <li><strong>Phone:<br></strong> <a href="phoneto:666 888 888">666 888 888</a></li>
+          <li>
+            <strong>Address:<br></strong>
+            <a href="https://www.google.com/maps/search/88+road,+borklyn+street,+USA/@40.700618,-74.1105207,11z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI0MDkxOC4xIKXMDSoASAFQAw%3D%3D"
+              target="_blank">
+              88 road, borklyn street, USA
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <div class="logo"><img src="./assets/images/logo.webp"></div>
+        <p class="description">
+          Simply dummy text of the printing and typesetting industry. Lorem Ipsum simply dummy text of the printing
+        </p>
+        <div class="icons df justify-c">
+          <a href="#" class="icon df align-c justify-c">
+            <img src="./assets/images/Insta.svg" alt="Instagram">
           </a>
-        </li>
-      </ul>
-      <p class="copyright">Copyright © <strong>Organick</strong></p>
+          <a href="#" class="icon df align-c justify-c">
+            <img src="./assets/images/Fb.svg" alt="Facebook">
+          </a>
+          <a href="#" class="icon df align-c justify-c">
+            <img src="./assets/images/Twiter.svg" alt="Twitter">
+          </a>
+          <a href="#" class="icon df align-c justify-c">
+            <img src="./assets/images/Pintrest.svg" alt="Pinterest">
+          </a>
+        </div>
+      </div>
+      <div class="utility-pages df fc align-s">
+        <h3>Utility Pages</h3>
+        <nav>
+          <ul class="df fc align-s">
+            <li><a href="#">Style Guide</a></li>
+            <li><a href="#">404 Not Found</a></li>
+            <li><a href="#">Password Protected</a></li>
+            <li><a href="#">Licences</a></li>
+            <li><a href="#">Changelog</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
+    <p class="copyright">Copyright © <strong>Organick</strong></p>
   </footer>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script src="node_modules/@glidejs/glide/dist/glide.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/awesome-notifications/3.1.0/index.var.min.js"
+    integrity="sha512-gS8jKzzlhaUACXtBbUmj9/ITyZEAMM5TNwcL2Y226Xh6J/xH8mYzm6C/tHFkRVbi+tV1uyW7pIMSTehhBt6sBg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="./build/js/app.min.js"></script>
 
 </body>

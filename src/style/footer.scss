@@ -7,36 +7,69 @@ footer {
     height: 55px;
     margin: 0 auto 15px;
   }
+  .icons {
+    gap: 15px;
+    padding-bottom: 25px;
+  }
+  .icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #eff6f1;
+    img {
+      max-height: 18px;
+    }
+  }
 
   p {
     text-align: center;
     font-size: 18px;
-    line-height: 105%;
+    line-height: 165%;
 
     &.description {
       margin-bottom: 30px;
     }
 
     &.copyright {
-      margin: 15px 0;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      border-top: solid 1px #d4d4d4;
+    }
+  }
+  ul {
+    gap: 32px;
+    padding-bottom: 70px;
+
+    li {
+      font-size: 18px;
+      color: #525c60;
+    }
+  }
+  .contact-us {
+    padding-right: 50px;
+    border-right: solid 1px #d4d4d4;
+    width: 30%;
+    ul {
+      li {
+        text-align: end;
+      }
+    }
+  }
+  .utility-pages {
+    padding-left: 50px;
+    border-left: solid 1px #d4d4d4;
+    width: 30%;
+    ul {
+      li {
+        text-align: start;
+      }
     }
   }
 
   h3 {
     font-size: 30px;
     text-align: center;
-    margin-bottom: 10px;
-  }
-
-  ul {
-    gap: 50px;
-    padding-bottom: 70px;
-    border-bottom: solid 1px $text-color;
-
-    li {
-      font-size: 18px;
-      color: #525c60;
-    }
+    margin-bottom: 32px;
   }
 
   @include onSmallDesktop {
@@ -64,11 +97,21 @@ footer {
         font-size: 16px;
       }
     }
+    .contact-us {
+      padding-right: 40px;
+    }
+    .utility-pages {
+      padding-left: 40px;
+    }
   }
 
   @include onLargeTablet {
     .logo {
       margin-bottom: 10px;
+    }
+    .icon {
+      width: 50px;
+      height: 50px;
     }
 
     p {
@@ -91,11 +134,44 @@ footer {
         font-size: 14px;
       }
     }
+    .contact-us {
+      padding-right: 30px;
+    }
+    .utility-pages {
+      padding-left: 30px;
+    }
   }
 
   @include onSmallTablet {
+    .container {
+      flex-direction: column;
+    }
+    .contact-us,
+    .utility-pages {
+      width: 100%;
+      padding: 0;
+      padding-top: 25px;
+      align-items: center;
+      border-top: solid 1px #d4d4d4;
+      border-right: none;
+      border-left: none;
+      ul {
+        align-items: center;
+        li {
+          text-align: center;
+        }
+      }
+    }
+    .contact-us {
+      order: 2;
+    }
+    .utility-pages {
+      order: 3;
+    }
+
     .logo {
       height: 30px;
+      margin-top: 15px;
     }
 
     p {
@@ -111,8 +187,7 @@ footer {
     }
 
     ul {
-      flex-direction: column;
-      gap: 4px;
+      gap: 8px;
       padding-bottom: 25px;
 
       li {
