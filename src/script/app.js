@@ -415,10 +415,14 @@ document.addEventListener("DOMContentLoaded", function () {
       emailjs.send("service_r3eclmp", "template_a70660p", {
         user_email: currentEmail,
       });
-      alert("Thanks for subscribing!");
+      notifier.success("Thanks for subscribing!", {
+        durations: { success: 2000 },
+      });
       emailField.value = ""; //clear form after submiting
     } else {
-      notifier.alert("Please type correct email address!");
+      notifier.alert("Please type correct email address!", {
+        durations: { alert: 2000 },
+      });
     }
   });
 
