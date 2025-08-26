@@ -450,9 +450,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //  що є індикатором кількості продуктів в корзині
     const allSelectedProducts =
       JSON.parse(localStorage.getItem("selectedProducts")) || [];
-    const cartCountElement = document.querySelector(
-      "header .features .cart p span"
-    );
+    const cartCountElement = document.querySelector("header .cart p span");
     // Оновлюємо наповнення обраного елемента за допомогою властивості textContent присвоюючи їй довжину масиву отриманого з Local Storage
     cartCountElement.textContent = allSelectedProducts.length;
 
